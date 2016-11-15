@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: piwik-ingress
+spec:
+  rules:
+  - host: piwik.notprod.homeoffice.gov.uk
+    http:
+      paths:
+      - backend:
+          serviceName: piwik
+          servicePort: http
+        path: /

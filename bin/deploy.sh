@@ -7,4 +7,5 @@ export KUBE_TOKEN=${KUBE_TOKEN_DEV}
 cd kube
 kd --insecure-skip-tls-verify \
    --file deployment.yaml \
-   --file service.yaml
+   --file service.yaml \
+   --file ingress.yaml
