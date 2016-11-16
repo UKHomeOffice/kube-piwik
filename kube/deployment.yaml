@@ -18,3 +18,10 @@ spec:
           protocol: TCP
         - name: https
           containerPort: 443
+        volumeMounts:
+        - name: config
+          mountPath: /piwik/config/
+      volumes:
+      - name: config
+        secret:
+          secretName: piwik-config
