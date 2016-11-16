@@ -11,4 +11,4 @@ spec:
       - backend:
           serviceName: piwik
           servicePort: http
-        path: /piwik/index.php
+        path: /
