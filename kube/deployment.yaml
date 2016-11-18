@@ -18,10 +18,39 @@ spec:
           protocol: TCP
         - name: https
           containerPort: 443
-        volumeMounts:
-        - name: config
-          mountPath: /config/
-      volumes:
-      - name: config
-        secret:
-          secretName: piwik-config
+        env:
+          - name: PIWIK_MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-connection
+                key: username
+          - name: PIWIK_MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-connection
+                key: password
+          - name: PIWIK_MYSQL_HOST
+            valueFrom:
+              secretKeyRef:
+                name: db-connection
+                key: host
+          - name: PIWIK_MYSQL_PORT
+            valueFrom:
+              secretKeyRef:
+                name: db-connection
+                key: port
+          - name: PIWIK_MYSQL_DBNAME
+            valueFrom:
+              secretKeyRef:
+                name: db-connection
+                key: dbname
+          - name: PIWIK_ADMIN
+            valueFrom:
+              secretKeyRef:
+                name: admin-user
+                key: username
+          - name: PIWIK_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: admin-user
+                key: password
