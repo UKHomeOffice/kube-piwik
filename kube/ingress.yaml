@@ -3,12 +3,18 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: piwik-ingress
+  annotations:
+    kubernetes.io/tls-acme: "true"
 spec:
+  tls:
+  - hosts:
+    - piwik.notprod.homeoffice.gov.uk
+    secretName: piwik-tls
   rules:
   - host: piwik.notprod.homeoffice.gov.uk
     http:
       paths:
       - backend:
           serviceName: piwik
-          servicePort: http
+          servicePort: https
         path: /
