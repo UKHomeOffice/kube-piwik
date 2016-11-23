@@ -75,19 +75,19 @@ spec:
               secretKeyRef:
                 name: admin-user
                 key: password
-        livenessProbe:
-          exec:
-            command:
-            - /healthcheck.sh
-          initialDelaySeconds: 90
-          timeoutSeconds: 10
-          periodSeconds: 30
-          failureThreshold: 10
-        readinessProbe:
-          exec:
-            command:
-            - /healthcheck.sh
-          initialDelaySeconds: 90
-          timeoutSeconds: 10
-          periodSeconds: 30
-          failureThreshold: 10
+        # livenessProbe:
+        #   exec:
+        #     command:
+        #     - /healthcheck.sh
+        #   initialDelaySeconds: 90
+        #   timeoutSeconds: 10
+        #   periodSeconds: 30
+        #   failureThreshold: 10
+        # readinessProbe:
+        #   exec:
+        #     command:
+        #     - /healthcheck.sh
+        #   initialDelaySeconds: 90
+        #   timeoutSeconds: 10
+        #   periodSeconds: 30
+        #   failureThreshold: 10
